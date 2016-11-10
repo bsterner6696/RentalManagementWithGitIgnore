@@ -18,7 +18,7 @@ namespace RentalManagement.Controllers
         // GET: MaintainenceRequests
         public ActionResult Index()
         {
-            var maintainenceRequest = db.MaintainenceRequest.Include(m => m.Apartment);
+            var maintainenceRequest = db.MaintainenceRequest.Include(m => m.Apartment).Include(r => r.Apartment.RentalProperty);
             return View(maintainenceRequest.ToList());
         }
 
