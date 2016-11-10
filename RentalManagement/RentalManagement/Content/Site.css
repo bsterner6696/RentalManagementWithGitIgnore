@@ -1,6 +1,6 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿header {
+    padding-top: 5%;
+    padding-bottom: 2%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -85,8 +85,4 @@ border-top: 2px solid #FFFFFF;
 border-radius: 5px 0 0 0;
 border-left: 5px solid #162CCD;
 color: #162CCD;
-}
-.navbar-header{
-	color: #000000;
-
 }
