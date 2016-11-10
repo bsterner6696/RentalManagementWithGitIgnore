@@ -1,0 +1,92 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.navbar, .navbar ul {
+list-style: none;
+padding: 0;
+margin: 0;
+color:#000000;
+}
+.navbar {
+position: fixed;
+width: 100%;
+background-image: url("/content/bkg1.jpg");
+color:#000000;
+
+
+}
+.navbar li {
+background: -moz-linear-gradient(#292929, #7e7e7e);
+background: -ms-linear-gradient(#292929, #7e7e7e);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #292929), color-stop(100%, #7e7e7e));
+background: -webkit-linear-gradient(#292929, #7e7e7e);
+background: -o-linear-gradient(#292929, #7e7e7e);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#7e7e7e');
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#7e7e7e')";
+background: linear-gradient(#292929, #7e7e7e);
+border-bottom: 2px solid #181818;
+border-top: 2px solid #303030;
+min-width: 160px;
+}
+.navbar > li {
+display: block;
+float: center;
+position: relative;
+}
+.navbar > li:first-child {
+border-radius: 5px 0 0;
+}
+.navbar a {
+border-left: 3px solid rgba(0, 0, 0, 0);
+color: #808080;
+display: block;
+font-family: 'Lucida Console';
+font-size: 18px;
+line-height: 54px;
+padding: 0 25px;
+text-transform: uppercase;
+}
+.navbar li:hover {
+background-color: #8D8D8D;
+background: -moz-linear-gradient(#8D8D8D, #989898);
+background: -ms-linear-gradient(#8D8D8D, #989898);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8D8D8D), color-stop(100%, #989898));
+background: -webkit-linear-gradient(#8D8D8D, #989898);
+background: -o-linear-gradient(#8D8D8D, #989898);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8D8D8D', endColorstr='#989898');
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#8D8D8D', endColorstr='#989898')";
+background: linear-gradient(#8D8D8D, #989898);
+border-bottom: 2px solid #FFFFFF;
+border-top: 2px solid #FFFFFF;
+
+}
+.navbar li:hover > a {
+border-radius: 5px 0 0 0;
+border-left: 5px solid #162CCD;
+color: #162CCD;
+}
+.navbar-header{
+	color: #000000;
+
+}
