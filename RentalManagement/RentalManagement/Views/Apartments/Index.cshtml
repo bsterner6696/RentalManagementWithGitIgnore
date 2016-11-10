@@ -62,3 +62,105 @@
 }
 
 </table>
+
+<div>
+
+    <br /><br /><br /><br /><br />
+
+
+
+    <script type='text/javascript'>
+var ws_wsid = '--Your-WSID-Here--';
+var ws_address = '626 E Kilbourn Ave, Milwaukee, WI';
+var ws_width = '600';
+var ws_height = '464';
+var ws_layout = 'horizontal';
+var ws_hide_footer = 'true';
+var ws_commute = 'true';
+var ws_transit_score = 'true';
+var ws_map_modules = 'default';
+var ws_no_link_info_bubbles = 'true';
+var ws_no_link_score_description = 'true';
+    </script>
+    <style type='text/css'>
+        #ws-walkscore-tile {
+            position: relative;
+            text-align: left;
+        }
+
+            #ws-walkscore-tile * {
+                float: none;
+            }
+
+        #ws-foottext, #ws-footer a, #ws-footer a:link {
+            font: 11px/14px Verdana,Arial,Helvetica,sans-serif;
+            margin-right: 6px;
+            white-space: nowrap;
+            padding: 0;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            #ws-footer a:hover {
+                color: #000;
+                text-decoration: none;
+            }
+
+            #ws-footer a:active {
+                color: #b14900;
+            }
+    </style><div id='ws-walkscore-tile'></div>
+    <script type='text/javascript' src='http://www.walkscore.com/tile/show-walkscore-tile.php'></script>
+
+
+
+
+</div>
+
+
+    <br /><br /><br /><br /><br />
+
+<div id="map_canvas" style="width: 640px; height: 480px;">
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHu-qJvTEXbv6rD5eXNqdoeBgQP3Kqknc&callback=initMap"
+        async defer></script>
+<script type="text/javascript">
+
+    window.onload = initialize;
+
+   //$(document).ready(function () {
+   //  initialize();
+   //});
+   function initialize() {
+     var mapOptions = {
+         center: new google.maps.LatLng(43.164, -87.977),
+       zoom: 10,
+       mapTypeId: google.maps.MapTypeId.ROADMAP
+     };
+     var map = new google.maps.Map(document.getElementById("map_canvas"),
+       mapOptions);
+     // create a marker
+     var latlng = new google.maps.LatLng(43.164, -87.977);
+     var marker = new google.maps.Marker({
+       position: latlng,
+       map: map,
+       title: 'My Place'
+     });
+
+     var marker = new google.maps.Marker({
+         position: { lat: 43.034, lng: -87.911 },
+         map: map
+     });
+
+
+   }
+</script> 
+   
+
+    <br /><br /><br /><br /><br />
+
+
+
+

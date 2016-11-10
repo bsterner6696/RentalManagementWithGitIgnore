@@ -10,6 +10,7 @@ namespace RentalManagement.Models
     public class Apartment
     {
         [Key]
+        [Display(Name = "Id")]
         public int Id { get; set; }
         public double RentPerMonth { get; set; }
         public int Unit { get; set; }

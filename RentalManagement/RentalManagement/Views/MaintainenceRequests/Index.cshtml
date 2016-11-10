@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<br/><br /><br /><br /><br /><br />
+
+<body>
 <h2>Index</h2>
 
 <p>
@@ -12,29 +16,26 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Apartment.Features)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeAndDateOfRequest)
-        </th>
-        <th></th>
-    </tr>
+    <th>
+        @Html.DisplayNameFor(model => model.Request)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.TimeAndDateOfRequest)
+    </th>
+    <th></th>
+</tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Apartment.Features)
+            @Html.DisplayFor(modelItem => item.Request)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TimeAndDateOfRequest)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
 
 </table>
+</body>

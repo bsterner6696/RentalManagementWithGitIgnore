@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RentalManagement.Models;
+using Microsoft.AspNet.Identity;
 
 namespace RentalManagement.Controllers
 {
@@ -48,8 +49,14 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,TimeAndDateOfRequest,ApartmentId")] MaintainenceRequest maintainenceRequest)
+        public ActionResult Create(MaintainenceRequest maintainenceRequest)
         {
+            var userId = User.Identity.GetUserId();
+            var tenant = db.Tenant.Include(a => a.Apartment).SingleOrDefault(t => t.ApplicationUserId == userId);
+            maintainenceRequest.TimeAndDateOfRequest = DateTime.Now;
+            maintainenceRequest.ApartmentId = tenant.ApartmentId;
+            maintainenceRequest.Apartment = tenant.Apartment;
+
             if (ModelState.IsValid)
             {
                 db.MaintainenceRequest.Add(maintainenceRequest);
