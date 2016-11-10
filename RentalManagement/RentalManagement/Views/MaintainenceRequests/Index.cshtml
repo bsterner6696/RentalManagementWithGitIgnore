@@ -20,9 +20,14 @@
         @Html.DisplayNameFor(model => model.Request)
     </th>
     <th>
+        @Html.DisplayNameFor(model => model.Apartment.RentalProperty.StreetAddress)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Apartment.Unit)
+    </th>
+    <th>
         @Html.DisplayNameFor(model => model.TimeAndDateOfRequest)
     </th>
-    <th></th>
 </tr>
 
 @foreach (var item in Model)
@@ -30,6 +35,12 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Request)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apartment.RentalProperty.StreetAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apartment.Unit)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TimeAndDateOfRequest)
