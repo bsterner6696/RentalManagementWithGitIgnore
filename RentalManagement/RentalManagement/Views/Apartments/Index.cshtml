@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<br /><br /><br /><br /><br />
+
 <h2>Index</h2>
 
 <p>
@@ -71,7 +73,7 @@
 
     <script type='text/javascript'>
 var ws_wsid = '--Your-WSID-Here--';
-var ws_address = '626 E Kilbourn Ave, Milwaukee, WI';
+var ws_address = '1040 East Knapp St, Milwaukee, WI';
 var ws_width = '600';
 var ws_height = '464';
 var ws_layout = 'horizontal';
@@ -121,45 +123,6 @@ var ws_no_link_score_description = 'true';
 
     <br /><br /><br /><br /><br />
 
-<div id="map_canvas" style="width: 640px; height: 480px;">
-</div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHu-qJvTEXbv6rD5eXNqdoeBgQP3Kqknc&callback=initMap"
-        async defer></script>
-<script type="text/javascript">
-
-    window.onload = initialize;
-
-   //$(document).ready(function () {
-   //  initialize();
-   //});
-   function initialize() {
-     var mapOptions = {
-         center: new google.maps.LatLng(43.164, -87.977),
-       zoom: 10,
-       mapTypeId: google.maps.MapTypeId.ROADMAP
-     };
-     var map = new google.maps.Map(document.getElementById("map_canvas"),
-       mapOptions);
-     // create a marker
-     var latlng = new google.maps.LatLng(43.164, -87.977);
-     var marker = new google.maps.Marker({
-       position: latlng,
-       map: map,
-       title: 'My Place'
-     });
-
-     var marker = new google.maps.Marker({
-         position: { lat: 43.034, lng: -87.911 },
-         map: map
-     });
-
-
-   }
-</script> 
-   
-
-    <br /><br /><br /><br /><br />
 
 
 
