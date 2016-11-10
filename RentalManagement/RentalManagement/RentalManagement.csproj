@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuthorizeNet.1.9.0\lib\AuthorizeNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -195,11 +199,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Content\ChargeCard.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaintainenceRequestsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\PropertyManagersController.cs" />
     <Compile Include="Controllers\RentalPropertiesController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
@@ -214,9 +220,18 @@
     <Compile Include="Migrations\201611082102469_set email addresses as strings.Designer.cs">
       <DependentUpon>201611082102469_set email addresses as strings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611102259421_payment model added.cs" />
+    <Compile Include="Migrations\201611102259421_payment model added.Designer.cs">
+      <DependentUpon>201611102259421_payment model added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611102326388_made amount in payment a decimal.cs" />
+    <Compile Include="Migrations\201611102326388_made amount in payment a decimal.Designer.cs">
+      <DependentUpon>201611102326388_made amount in payment a decimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Apartment.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MaintainenceRequest.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -309,6 +324,11 @@
     <Content Include="Views\Tenants\Details.cshtml" />
     <Content Include="Views\Tenants\Edit.cshtml" />
     <Content Include="Views\Tenants\Index.cshtml" />
+    <Content Include="Views\Payments\Create.cshtml" />
+    <Content Include="Views\Payments\Delete.cshtml" />
+    <Content Include="Views\Payments\Details.cshtml" />
+    <Content Include="Views\Payments\Edit.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +347,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611082102469_set email addresses as strings.resx">
       <DependentUpon>201611082102469_set email addresses as strings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611102259421_payment model added.resx">
+      <DependentUpon>201611102259421_payment model added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611102326388_made amount in payment a decimal.resx">
+      <DependentUpon>201611102326388_made amount in payment a decimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

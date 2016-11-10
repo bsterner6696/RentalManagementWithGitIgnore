@@ -35,5 +35,6 @@ namespace RentalManagement.Models
         public DbSet<PropertyManager> PropertyManager { get; set; }
         public DbSet<RentalProperty> RentalProperty { get; set; }
         public DbSet<Tenant> Tenant { get; set; }
+        public DbSet<Payment> Payments { get; set; }
     }
 }
