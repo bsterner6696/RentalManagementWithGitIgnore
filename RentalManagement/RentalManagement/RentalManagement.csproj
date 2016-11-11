@@ -232,6 +232,18 @@
     <Compile Include="Migrations\201611111405243_added movein date to tenant, and ismovedin.Designer.cs">
       <DependentUpon>201611111405243_added movein date to tenant, and ismovedin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611111440430_Changed a double money value to a decimal.cs" />
+    <Compile Include="Migrations\201611111440430_Changed a double money value to a decimal.Designer.cs">
+      <DependentUpon>201611111440430_Changed a double money value to a decimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611111614354_added move out date to tenant.cs" />
+    <Compile Include="Migrations\201611111614354_added move out date to tenant.Designer.cs">
+      <DependentUpon>201611111614354_added move out date to tenant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611111632535_set datatype of move in and move out dates to dates.cs" />
+    <Compile Include="Migrations\201611111632535_set datatype of move in and move out dates to dates.Designer.cs">
+      <DependentUpon>201611111632535_set datatype of move in and move out dates to dates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Apartment.cs" />
@@ -333,6 +345,7 @@
     <Content Include="Views\Payments\Details.cshtml" />
     <Content Include="Views\Payments\Edit.cshtml" />
     <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Tenants\TenantIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -360,6 +373,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611111405243_added movein date to tenant, and ismovedin.resx">
       <DependentUpon>201611111405243_added movein date to tenant, and ismovedin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611111440430_Changed a double money value to a decimal.resx">
+      <DependentUpon>201611111440430_Changed a double money value to a decimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611111614354_added move out date to tenant.resx">
+      <DependentUpon>201611111614354_added move out date to tenant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611111632535_set datatype of move in and move out dates to dates.resx">
+      <DependentUpon>201611111632535_set datatype of move in and move out dates to dates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

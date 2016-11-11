@@ -12,7 +12,7 @@ namespace RentalManagement.Models
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
-        public double RentPerMonth { get; set; }
+        public decimal RentPerMonth { get; set; }
         public int Unit { get; set; }
         [Display(Name = "Number of Bedrooms")]
         public double NumberBedrooms { get; set; }

@@ -16,8 +16,13 @@ namespace RentalManagement.Models
         public string LastName { get; set; }
         public decimal Balance { get; set; }
 
-        
+        [Display(Name = "Move In Date")]
+        [DataType(DataType.Date)]
         public DateTime MoveInDate { get; set; }
+
+        [Display(Name = "Move Out Date")]
+        [DataType(DataType.Date)]
+        public DateTime MoveOutDate { get; set; }
 
         [Display(Name = "Is Moved In")]
         public bool OccupyingApartment { get; set; }
