@@ -7,13 +7,13 @@ namespace RentalManagement.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class setdatatypeofmoveinandmoveoutdatestodates : IMigrationMetadata
+    public sealed partial class reinit : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(setdatatypeofmoveinandmoveoutdatestodates));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(reinit));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611111632535_set datatype of move in and move out dates to dates"; }
+            get { return "201611111951489_reinit"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@ namespace RentalManagement.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class reinit : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@ namespace RentalManagement.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        RentPerMonth = c.Double(nullable: false),
+                        RentPerMonth = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Unit = c.Int(nullable: false),
                         NumberBedrooms = c.Double(nullable: false),
                         NumberBathrooms = c.Double(nullable: false),
@@ -41,6 +41,7 @@ namespace RentalManagement.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        EmailAddress = c.String(),
                         PhoneNumber = c.String(),
                         Name = c.String(),
                         ApplicationUserId = c.String(maxLength: 128),
@@ -121,6 +122,23 @@ namespace RentalManagement.Migrations
                 .Index(t => t.ApartmentId);
             
             CreateTable(
+                "dbo.Payments",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        CardNumber = c.String(),
+                        ExpirationDate = c.String(),
+                        CardCode = c.String(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        Address = c.String(),
+                        City = c.String(),
+                        ZipCode = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -137,7 +155,11 @@ namespace RentalManagement.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(),
                         LastName = c.String(),
-                        Balance = c.Double(nullable: false),
+                        Balance = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        MoveInDate = c.DateTime(nullable: false),
+                        MoveOutDate = c.DateTime(nullable: false),
+                        OccupyingApartment = c.Boolean(nullable: false),
+                        EmailAddress = c.String(),
                         InitialPassword = c.String(),
                         ApartmentId = c.Int(nullable: false),
                         ApplicationUserId = c.String(maxLength: 128),
@@ -176,6 +198,7 @@ namespace RentalManagement.Migrations
             DropIndex("dbo.Apartments", new[] { "RentalPropertyId" });
             DropTable("dbo.Tenants");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Payments");
             DropTable("dbo.MaintainenceRequests");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
