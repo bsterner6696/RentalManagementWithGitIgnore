@@ -54,7 +54,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Balance,ApartmentId,EmailAddress,InitialPassword")] Tenant tenant)
+        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Balance,ApartmentId,EmailAddress,InitialPassword,MoveInDate")] Tenant tenant)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace RentalManagement.Controllers
                 ApplicationUser tenantUser = db.Users.FirstOrDefault(x => x.UserName == email);
                 tenant.ApplicationUserId = tenantUser.Id;
                 tenant.ApplicationUser = tenantUser;
-               
+                tenant.OccupyingApartment = true;
                 db.Tenant.Add(tenant);
                 db.SaveChanges();
                 await UserManager.AddToRoleAsync(user.Id, "Tenant");

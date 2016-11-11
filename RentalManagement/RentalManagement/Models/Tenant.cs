@@ -14,7 +14,13 @@ namespace RentalManagement.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public double Balance { get; set; }
+        public decimal Balance { get; set; }
+
+        
+        public DateTime MoveInDate { get; set; }
+
+        [Display(Name = "Is Moved In")]
+        public bool OccupyingApartment { get; set; }
 
         [Display(Name = "Email Address")]
         [EmailAddress]

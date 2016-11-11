@@ -11,6 +11,7 @@ using RentalManagement.Content;
 using AuthorizeNet.Api.Controllers;
 using AuthorizeNet.Api.Contracts.V1;
 using AuthorizeNet.Api.Controllers.Bases;
+using Microsoft.AspNet.Identity;
 
 namespace RentalManagement.Controllers
 {
@@ -40,6 +41,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Payments/Create
+        [Authorize(Roles = "Tenant")]
         public ActionResult Create()
         {
             return View();
@@ -70,6 +72,10 @@ namespace RentalManagement.Controllers
                     zip = payment.ZipCode
                 };
                 ChargeCard.Run("3dhK66Q8", "5bnw5v5mCvP656D3", creditCard, billingAddress, payment.Amount);
+                string currentUserId = User.Identity.GetUserId();
+                Tenant currentTenant = db.Tenant.FirstOrDefault(x => x.ApplicationUserId == currentUserId);
+                currentTenant.Balance -= payment.Amount;
+                db.SaveChanges();
                 //db.Payments.Add(payment);
                 //db.SaveChanges();
                 return RedirectToAction("Index");
