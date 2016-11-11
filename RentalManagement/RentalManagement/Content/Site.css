@@ -26,8 +26,27 @@ textarea {
 }
 .navbar{
 	background-image: url("/content/bkg1.jpg");
+    background-position: center;
 }
 #linkcolor{
-    color: #000000;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+    	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+.navbar-brand {
+     color: black !important 
+
+}
+.navbar-brand:visited { 
+    color: black !important 
+
+}
+.navbar-default-color { 
+    color: black !important 
+
+}
+.navbar-inverse { 
+    color : #FFFFFF !important 
+
+}
+.nav.navbar-nav li a {
+     color: #000000; 
+ }

@@ -212,9 +212,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611111951489_reinit.cs" />
-    <Compile Include="Migrations\201611111951489_reinit.Designer.cs">
-      <DependentUpon>201611111951489_reinit.cs</DependentUpon>
+    <Compile Include="Migrations\201611112039042_init too.cs" />
+    <Compile Include="Migrations\201611112039042_init too.Designer.cs">
+      <DependentUpon>201611112039042_init too.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -331,8 +331,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611111951489_reinit.resx">
-      <DependentUpon>201611111951489_reinit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611112039042_init too.resx">
+      <DependentUpon>201611112039042_init too.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
