@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 033537337ce6a317496a0607e3d5ec8026ce059a
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
@@ -213,9 +216,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\201611112039042_init too.cs" />
     <Compile Include="Migrations\201611112039042_init too.Designer.cs">
       <DependentUpon>201611112039042_init too.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\201611112143455_reinit.cs" />
+    <Compile Include="Migrations\201611112143455_reinit.Designer.cs">
+      <DependentUpon>201611112143455_reinit.cs</DependentUpon>
+>>>>>>> 033537337ce6a317496a0607e3d5ec8026ce059a
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -332,8 +341,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\201611112039042_init too.resx">
       <DependentUpon>201611112039042_init too.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\201611112143455_reinit.resx">
+      <DependentUpon>201611112143455_reinit.cs</DependentUpon>
+>>>>>>> 033537337ce6a317496a0607e3d5ec8026ce059a
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -371,6 +385,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -746,6 +761,8 @@
   </Target>
 
 >>>>>>> 2cfaf882138d27a8aaed090156bc67e7c6db911f
+=======
+>>>>>>> 033537337ce6a317496a0607e3d5ec8026ce059a
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
