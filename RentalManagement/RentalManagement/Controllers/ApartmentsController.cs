@@ -17,8 +17,16 @@ namespace RentalManagement.Controllers
         // GET: Apartments
         public ActionResult Index()
         {
-            var apartment = db.Apartment.Include(a => a.RentalProperty);
-            return View(apartment.ToList());
+            if (User.IsInRole("Manager"))
+            {
+                var apartment = db.Apartment.Include(a => a.RentalProperty);
+                return View("ManagerIndex",apartment.ToList());
+            }
+            else
+            {
+                var apartment = db.Apartment.Include(a => a.RentalProperty);
+                return View(apartment.ToList());
+            }
         }
 
         // GET: Apartments/Details/5
@@ -48,7 +56,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RentPerMonth,Unit,NumberBedrooms,NumberBathrooms,Features,RentalPropertyId")] Apartment apartment)
+        public ActionResult Create([Bind(Include = "Id,RentPerMonth,Unit,NumberBedrooms,NumberBathrooms,Features,RentalPropertyId,IsAvailable,DateAvailable")] Apartment apartment)
         {
             if (ModelState.IsValid)
             {
