@@ -56,7 +56,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RentPerMonth,Unit,NumberBedrooms,NumberBathrooms,Features,RentalPropertyId")] Apartment apartment)
+        public ActionResult Create([Bind(Include = "Id,RentPerMonth,Unit,NumberBedrooms,NumberBathrooms,Features,RentalPropertyId,IsAvailable,DateAvailable")] Apartment apartment)
         {
             if (ModelState.IsValid)
             {
