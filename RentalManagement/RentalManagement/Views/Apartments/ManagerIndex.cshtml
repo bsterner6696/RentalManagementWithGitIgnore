@@ -1,0 +1,129 @@
+﻿@model IEnumerable<RentalManagement.Models.Apartment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br /><br /><br /><br />
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalProperty.StreetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentPerMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberBedrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberBathrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Features)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateAvailable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalProperty.StreetAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentPerMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberBedrooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberBathrooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Features)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+
+    <script type='text/javascript'>
+var ws_wsid = '--Your-WSID-Here--';
+var ws_address = '1040 East Knapp St, Milwaukee, WI';
+var ws_width = '600';
+var ws_height = '464';
+var ws_layout = 'horizontal';
+var ws_hide_footer = 'true';
+var ws_commute = 'true';
+var ws_transit_score = 'true';
+var ws_map_modules = 'default';
+var ws_no_link_info_bubbles = 'true';
+var ws_no_link_score_description = 'true';
+    </script>
+    <style type='text/css'>
+        #ws-walkscore-tile {
+            position: relative;
+            text-align: left;
+        }
+
+            #ws-walkscore-tile * {
+                float: none;
+            }
+
+        #ws-foottext, #ws-footer a, #ws-footer a:link {
+            font: 11px/14px Verdana,Arial,Helvetica,sans-serif;
+            margin-right: 6px;
+            white-space: nowrap;
+            padding: 0;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            #ws-footer a:hover {
+                color: #000;
+                text-decoration: none;
+            }
+
+            #ws-footer a:active {
+                color: #b14900;
+            }
+    </style><div id='ws-walkscore-tile'></div>
+    <script type='text/javascript' src='http://www.walkscore.com/tile/show-walkscore-tile.php'></script>
+
+
+
+
+</div>
+
+
+
+
+
+
