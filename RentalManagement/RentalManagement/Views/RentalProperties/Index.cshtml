@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br /><br /><br /><br /><br />
+<br /><br />
 
-<h2>Index</h2>
+<h2>Rental Properties</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -48,7 +48,7 @@
 </table>
 
 
-<br /><br /><br /><br /><br />
+<br /><br />
 
 
 <div id="map_canvas" style="width: 640px; height: 480px;">
@@ -62,22 +62,22 @@
 
    function initialize() {
      var mapOptions = {
-         center: new google.maps.LatLng(43.164, -87.977),
+         center: new google.maps.LatLng(42.934, -87.977),
        zoom: 10,
        mapTypeId: google.maps.MapTypeId.ROADMAP
      };
      var map = new google.maps.Map(document.getElementById("map_canvas"),
        mapOptions);
      // create a marker
-     var latlng = new google.maps.LatLng(43.164, -87.977);
+     var latlng = new google.maps.LatLng(42.934, -87.977);
      var marker = new google.maps.Marker({
        position: latlng,
        map: map,
-       title: 'My Place'
+       title: 'Ben\'s House'
      });
 
      var marker = new google.maps.Marker({
-         position: { lat: 43.034, lng: -87.911 },
+         position: { lat: 43.047, lng: -87.898 },
          map: map
      });
 
@@ -86,5 +86,5 @@
 </script>
 
 
-<br /><br /><br /><br /><br />
+<br /><br />
 

@@ -11,7 +11,9 @@ namespace RentalManagement.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
+        [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
         [ForeignKey("PropertyManager")]
         public int PropertyManagerId { get; set; }

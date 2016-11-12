@@ -18,7 +18,7 @@ namespace RentalManagement.Models
         [Display(Name = "Date Available")]
         [DataType(DataType.Date)]
         public DateTime DateAvailable { get; set; }
-
+        [Display(Name = "Rent Per Month")]
         public decimal RentPerMonth { get; set; }
         public int Unit { get; set; }
         [Display(Name = "Number of Bedrooms")]

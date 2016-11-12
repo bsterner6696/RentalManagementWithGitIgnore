@@ -31,7 +31,7 @@ namespace RentalManagement.Controllers
             else if (User.IsInRole("Tenant"))
             {
                 string currentUserId = User.Identity.GetUserId();
-                Tenant currentTenant = db.Tenant.FirstOrDefault(x => x.ApplicationUserId == currentUserId);
+                Tenant currentTenant = db.Tenant.Include(t => t.Apartment).FirstOrDefault(x => x.ApplicationUserId == currentUserId);
                 List<Tenant> tenantList = new List<Tenant>();
                 tenantList.Add(currentTenant);
                 return View("TenantIndex",tenantList);

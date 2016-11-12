@@ -11,6 +11,7 @@ namespace RentalManagement.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Time and Date of Request")]
         public DateTime TimeAndDateOfRequest { get; set; }
         public string Request { get; set; }
         [ForeignKey("Apartment")]
