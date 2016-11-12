@@ -29,6 +29,12 @@ namespace RentalManagement.Controllers
             }
         }
 
+        public ActionResult GetWalkScore(int? id)
+        {
+            var rentalProperty = db.Apartment.Include(a => a.RentalProperty).SingleOrDefault(r => r.Id == id);
+            return View(rentalProperty);
+        }
+
         // GET: Apartments/Details/5
         public ActionResult Details(int? id)
         {

@@ -1,0 +1,64 @@
+﻿@model RentalManagement.Models.Apartment
+
+@{
+    ViewBag.Title = "GetWalkScore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/><br /><br /><br /><br /><br />
+
+<h2>WalkScore</h2>
+
+<h3>@Model.RentalProperty.StreetAddress</h3>
+
+<div>
+
+<script type='text/javascript'>
+var ws_wsid = '--Your-WSID-Here--';   
+    //var ws_address = '1040 East Knapp St, Milwaukee, WI';
+var ws_address = '@Model.RentalProperty.StreetAddress';
+var ws_width = '600';
+var ws_height = '400';
+var ws_layout = 'horizontal';
+var ws_hide_footer = 'true';
+var ws_commute = 'true';
+var ws_transit_score = 'true';
+var ws_map_modules = 'default';
+var ws_no_link_info_bubbles = 'true';
+var ws_no_link_score_description = 'true';
+    </script>
+    <style type='text/css'>
+        #ws-walkscore-tile {
+            position: relative;
+            text-align: left;
+        }
+
+            #ws-walkscore-tile * {
+                float: none;
+            }
+
+        #ws-foottext, #ws-footer a, #ws-footer a:link {
+            font: 11px/14px Verdana,Arial,Helvetica,sans-serif;
+            margin-right: 6px;
+            white-space: nowrap;
+            padding: 0;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            #ws-footer a:hover {
+                color: #000;
+                text-decoration: none;
+            }
+
+            #ws-footer a:active {
+                color: #b14900;
+            }
+    </style><div id='ws-walkscore-tile'></div>
+    <script type='text/javascript' src='http://www.walkscore.com/tile/show-walkscore-tile.php'></script>
+
+
+
+
+</div>

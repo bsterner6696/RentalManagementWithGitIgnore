@@ -44,6 +44,10 @@
             @Html.DisplayFor(modelItem => item.DateAvailable)
         </td>
         <td>
+            @Html.ActionLink(item.RentalProperty.StreetAddress, "GetWalkScore", new { id = item.Id })
+        </td>
+
+        <td>
             @Html.DisplayFor(modelItem => item.RentalProperty.StreetAddress)
         </td>
         <td>
@@ -71,7 +75,7 @@
 
 </table>
 
-<div>
+@*<div>
 
     <script type='text/javascript'>
 var ws_wsid = '--Your-WSID-Here--';
@@ -120,7 +124,7 @@ var ws_no_link_score_description = 'true';
 
 
 
-</div>
+</div>*@
 
 
 

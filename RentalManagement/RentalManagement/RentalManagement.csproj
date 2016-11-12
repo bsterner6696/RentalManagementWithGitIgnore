@@ -314,6 +314,7 @@
     <Content Include="Views\Payments\Edit.cshtml" />
     <Content Include="Views\Payments\Index.cshtml" />
     <Content Include="Views\Tenants\TenantIndex.cshtml" />
+    <Content Include="Views\Apartments\GetWalkScore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
