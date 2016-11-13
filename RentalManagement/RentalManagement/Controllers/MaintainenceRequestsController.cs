@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using RentalManagement.Models;
 using Microsoft.AspNet.Identity;
+using Twilio;
+using System.Configuration;
 
 namespace RentalManagement.Controllers
 {
@@ -56,11 +58,20 @@ namespace RentalManagement.Controllers
             maintainenceRequest.TimeAndDateOfRequest = DateTime.Now;
             maintainenceRequest.ApartmentId = tenant.ApartmentId;
             maintainenceRequest.Apartment = tenant.Apartment;
+            var rentalProperty = db.RentalProperty.Find(tenant.Apartment.RentalPropertyId);
+
+
+            var message = $"Maintenance Request from {tenant.FirstName} at {rentalProperty.StreetAddress} ";
+            message += $" unit# {tenant.Apartment.Unit} Request: {maintainenceRequest.Request}";
 
             if (ModelState.IsValid)
             {
                 db.MaintainenceRequest.Add(maintainenceRequest);
                 db.SaveChanges();
+
+                var client = new TwilioRestClient(ConfigurationManager.AppSettings["TwilioAccountSid"], ConfigurationManager.AppSettings["TwilioAuthToken"]);
+                client.SendMessage(ConfigurationManager.AppSettings["TwilioPhoneNumber"], "14143368732", message);
+
                 return RedirectToAction("Index");
             }
 
