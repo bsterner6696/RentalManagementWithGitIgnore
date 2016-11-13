@@ -21,7 +21,20 @@ namespace RentalManagement.Controllers
         public ActionResult Index()
         {
             var maintainenceRequest = db.MaintainenceRequest.Include(m => m.Apartment).Include(r => r.Apartment.RentalProperty);
-            return View(maintainenceRequest.ToList());
+
+            if (User.IsInRole("Manager")) {
+                return View(maintainenceRequest.ToList());
+            }
+            else if (User.IsInRole("Tenant")) {
+                var applicationUserId = User.Identity.GetUserId();
+                var user = db.Tenant.Single(t => t.ApplicationUserId == applicationUserId);
+                maintainenceRequest = maintainenceRequest.Where(t => t.ApartmentId == user.ApartmentId);
+                return View(maintainenceRequest.ToList());
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         // GET: MaintainenceRequests/Details/5
