@@ -6,8 +6,6 @@
 }
 
 
-
-
 <h2>Tenant Account</h2>
 
 @*<p>
@@ -33,7 +31,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Apartment.Id)
+            @Html.DisplayFor(modelItem => item.Apartment.Features)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
