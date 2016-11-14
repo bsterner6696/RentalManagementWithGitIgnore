@@ -36,6 +36,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Apartments/Details/5
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -51,6 +52,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Apartments/Create
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Create()
         {
             ViewBag.RentalPropertyId = new SelectList(db.RentalProperty, "Id", "StreetAddress");
@@ -76,6 +78,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Apartments/Edit/5
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -96,7 +99,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,RentPerMonth,Unit,NumberBedrooms,NumberBathrooms,Features,RentalPropertyId")] Apartment apartment)
+        public ActionResult Edit([Bind(Include = "Id,RentPerMonth,Unit,NumberBedrooms,NumberBathrooms,Features,RentalPropertyId,IsAvailable,DateAvailable")] Apartment apartment)
         {
             if (ModelState.IsValid)
             {
@@ -109,6 +112,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Apartments/Delete/5
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
