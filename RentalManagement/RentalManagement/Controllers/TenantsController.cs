@@ -13,6 +13,7 @@ using Microsoft.Owin.Security;
 using System.Threading.Tasks;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.IO;
 
 namespace RentalManagement.Controllers
 {
@@ -21,6 +22,7 @@ namespace RentalManagement.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Tenants
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Index()
         {
             if (User.IsInRole("Manager"))
@@ -44,7 +46,7 @@ namespace RentalManagement.Controllers
         }
 
         //GET: Tenants/ChargeRent
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult ChargeRent()
         {
             foreach (Tenant tenant in db.Tenant)
@@ -67,8 +69,8 @@ namespace RentalManagement.Controllers
             var tenants = db.Tenant.Include(t => t.Apartment);
             return View("Index",tenants.ToList());
         }
-        //GET: Tenants/ChargeRent
-        [Authorize(Roles = "Manager")]
+        //GET: Tenants/MoveInOut
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult MoveInOut()
         {
             foreach (Tenant tenant in db.Tenant)
@@ -80,6 +82,7 @@ namespace RentalManagement.Controllers
                     if (today >= tenant.MoveInDate && today <= tenant.MoveOutDate)
                     {
                         tenant.OccupyingApartment = true;
+                        apartment.IsAvailable = false;
                     }
                     else
                     {
@@ -97,7 +100,7 @@ namespace RentalManagement.Controllers
             return View("Index", tenants.ToList());
         }
         // GET: Tenants/Details/5
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -113,7 +116,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Tenants/Create
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Create()
         {
             ViewBag.ApartmentId = new SelectList(db.Apartment, "Id", "Features");
@@ -125,7 +128,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Balance,ApartmentId,EmailAddress,InitialPassword,MoveInDate,MoveOutDate")] Tenant tenant)
+        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Balance,ApartmentId,EmailAddress,InitialPassword,MoveInDate,MoveOutDate,LeasePdfFileName")] Tenant tenant)
         {
             if (ModelState.IsValid)
             {
@@ -155,9 +158,8 @@ namespace RentalManagement.Controllers
             ViewBag.ApartmentId = new SelectList(db.Apartment, "Id", "Features", tenant.ApartmentId);
             return View(tenant);
         }
-
         // GET: Tenants/Edit/5
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -178,7 +180,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ApartmentId,OccupyingApartment")] Tenant tenant)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ApartmentId,OccupyingApartment,EmailAddress,InitialPassword,ApplicationUserId,MoveInDate, MoveOutDate, LeasePdfFileName")] Tenant tenant)
         {
             if (ModelState.IsValid)
             {
@@ -191,7 +193,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Tenants/Delete/5
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

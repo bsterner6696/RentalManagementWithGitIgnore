@@ -17,11 +17,20 @@ namespace RentalManagement.Controllers
         // GET: RentalProperties
         public ActionResult Index()
         {
-            var rentalProperty = db.RentalProperty.Include(r => r.PropertyManager);
-            return View(rentalProperty.ToList());
+            if (User.IsInRole("Manager"))
+            {
+                var rentalProperty = db.RentalProperty.Include(r => r.PropertyManager);
+                return View("ManagerIndex", rentalProperty.ToList());
+            }
+            else
+            {
+                var rentalProperty = db.RentalProperty.Include(r => r.PropertyManager);
+                return View(rentalProperty.ToList());
+            }
         }
 
         // GET: RentalProperties/Details/5
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +46,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: RentalProperties/Create
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Create()
         {
             ViewBag.PropertyManagerId = new SelectList(db.PropertyManager, "Id", "EmailAddress");
@@ -62,6 +72,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: RentalProperties/Edit/5
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +106,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: RentalProperties/Delete/5
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

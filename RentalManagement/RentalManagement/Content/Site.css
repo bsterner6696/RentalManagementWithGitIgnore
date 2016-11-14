@@ -1,5 +1,8 @@
 body{
-	background-color: #C0C0C0;
+	background-color: #d7d9dd;
+}
+h1{
+	text-align: center;
 }
 .jumbotron{
 	text-align: center;
@@ -25,7 +28,7 @@ textarea {
     max-width: 280px;
 }
 .navbar{
-	background-image: url("/content/bkg1.jpg");
+	background-color: cornflowerblue;
     background-position: center;
 }
 
@@ -51,4 +54,9 @@ textarea {
 .nav.navbar-nav li a {
      color: #000000; 
  }
-
+ .centerImage{
+	align-self: center;
+	display:block;
+	width: 100%;
+}
+ 

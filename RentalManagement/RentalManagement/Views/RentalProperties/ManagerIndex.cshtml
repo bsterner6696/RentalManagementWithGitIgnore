@@ -1,0 +1,89 @@
+﻿@model IEnumerable<RentalManagement.Models.RentalProperty>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Rental Properties</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyManager.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyManager.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StreetAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<br />
+
+
+<div id="map_canvas" style="width: 640px; height: 480px;">
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHu-qJvTEXbv6rD5eXNqdoeBgQP3Kqknc&callback=initMap"
+        async defer></script>
+<script type="text/javascript">
+
+    window.onload = initialize;
+
+   function initialize() {
+     var mapOptions = {
+         center: new google.maps.LatLng(42.934, -87.977),
+       zoom: 10,
+       mapTypeId: google.maps.MapTypeId.ROADMAP
+     };
+     var map = new google.maps.Map(document.getElementById("map_canvas"),
+       mapOptions);
+     // create a marker
+     var latlng = new google.maps.LatLng(42.934, -87.977);
+     var marker = new google.maps.Marker({
+       position: latlng,
+       map: map,
+       title: 'Ben\'s House'
+     });
+
+     var marker = new google.maps.Marker({
+         position: { lat: 43.047, lng: -87.898 },
+         map: map
+     });
+
+
+   }
+</script>
+
+
+<br /><br />
+
