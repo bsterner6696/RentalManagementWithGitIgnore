@@ -17,8 +17,16 @@ namespace RentalManagement.Controllers
         // GET: RentalProperties
         public ActionResult Index()
         {
-            var rentalProperty = db.RentalProperty.Include(r => r.PropertyManager);
-            return View(rentalProperty.ToList());
+            if (User.IsInRole("Manager"))
+            {
+                var rentalProperty = db.RentalProperty.Include(r => r.PropertyManager);
+                return View("ManagerIndex", rentalProperty.ToList());
+            }
+            else
+            {
+                var rentalProperty = db.RentalProperty.Include(r => r.PropertyManager);
+                return View(rentalProperty.ToList());
+            }
         }
 
         // GET: RentalProperties/Details/5

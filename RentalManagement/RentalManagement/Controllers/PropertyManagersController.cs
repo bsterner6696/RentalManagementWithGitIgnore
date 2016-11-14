@@ -17,6 +17,14 @@ namespace RentalManagement.Controllers
         // GET: PropertyManagers
         public ActionResult Index()
         {
+            if (User.IsInRole("Manager"))
+            {
+                return View("ManagerIndex", db.PropertyManager.ToList());
+            }
+            else
+            {
+                return View(db.PropertyManager.ToList());
+            }
             return View(db.PropertyManager.ToList());
         }
 
