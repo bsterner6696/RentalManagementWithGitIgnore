@@ -28,6 +28,7 @@ textarea {
 	background-image: url("/content/bkg1.jpg");
     background-position: center;
 }
+
 #linkcolor{
     	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
@@ -50,3 +51,4 @@ textarea {
 .nav.navbar-nav li a {
      color: #000000; 
  }
+
