@@ -18,6 +18,7 @@ namespace RentalManagement.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MaintainenceRequests
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Index()
         {
             var maintainenceRequest = db.MaintainenceRequest.Include(m => m.Apartment).Include(r => r.Apartment.RentalProperty);
@@ -38,6 +39,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: MaintainenceRequests/Details/5
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -53,6 +55,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: MaintainenceRequests/Create
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Create()
         {
             ViewBag.ApartmentId = new SelectList(db.Apartment, "Id", "Features");
@@ -93,6 +96,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: MaintainenceRequests/Edit/5
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -126,6 +130,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: MaintainenceRequests/Delete/5
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -21,6 +21,7 @@ namespace RentalManagement.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Tenants
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Index()
         {
             if (User.IsInRole("Manager"))
@@ -44,7 +45,7 @@ namespace RentalManagement.Controllers
         }
 
         //GET: Tenants/ChargeRent
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult ChargeRent()
         {
             foreach (Tenant tenant in db.Tenant)
@@ -68,7 +69,7 @@ namespace RentalManagement.Controllers
             return View("Index",tenants.ToList());
         }
         //GET: Tenants/ChargeRent
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult MoveInOut()
         {
             foreach (Tenant tenant in db.Tenant)
@@ -97,7 +98,7 @@ namespace RentalManagement.Controllers
             return View("Index", tenants.ToList());
         }
         // GET: Tenants/Details/5
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -113,7 +114,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Tenants/Create
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Create()
         {
             ViewBag.ApartmentId = new SelectList(db.Apartment, "Id", "Features");
@@ -157,7 +158,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Tenants/Edit/5
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -191,7 +192,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Tenants/Delete/5
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

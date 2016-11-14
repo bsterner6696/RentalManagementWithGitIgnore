@@ -22,6 +22,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: RentalProperties/Details/5
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +38,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: RentalProperties/Create
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Create()
         {
             ViewBag.PropertyManagerId = new SelectList(db.PropertyManager, "Id", "EmailAddress");
@@ -62,6 +64,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: RentalProperties/Edit/5
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +98,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: RentalProperties/Delete/5
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

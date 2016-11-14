@@ -20,12 +20,14 @@ namespace RentalManagement.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Payments
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Index()
         {
             return View(db.Payments.ToList());
         }
 
         // GET: Payments/Details/5
+        [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -85,6 +87,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Payments/Edit/5
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -116,6 +119,7 @@ namespace RentalManagement.Controllers
         }
 
         // GET: Payments/Delete/5
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
