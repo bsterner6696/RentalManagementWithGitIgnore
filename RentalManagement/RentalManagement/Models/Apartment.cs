@@ -12,6 +12,13 @@ namespace RentalManagement.Models
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
+        [Display(Name = "Is Available")]
+        public bool IsAvailable { get; set; }
+
+        [Display(Name = "Date Available")]
+        [DataType(DataType.Date)]
+        public DateTime DateAvailable { get; set; }
+
         public decimal RentPerMonth { get; set; }
         public int Unit { get; set; }
         [Display(Name = "Number of Bedrooms")]
