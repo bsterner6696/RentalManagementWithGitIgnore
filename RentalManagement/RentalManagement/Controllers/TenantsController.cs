@@ -117,7 +117,7 @@ namespace RentalManagement.Controllers
         public ActionResult Create()
         {
             ViewBag.ApartmentId = new SelectList(db.Apartment, "Id", "Features");
-            return View();
+            return View("Create");
         }
 
         // POST: Tenants/Create

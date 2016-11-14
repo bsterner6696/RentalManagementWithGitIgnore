@@ -54,7 +54,7 @@ namespace RentalManagement.Controllers
         public ActionResult Create()
         {
             ViewBag.RentalPropertyId = new SelectList(db.RentalProperty, "Id", "StreetAddress");
-            return View();
+            return View("Create");
         }
 
         // POST: Apartments/Create
