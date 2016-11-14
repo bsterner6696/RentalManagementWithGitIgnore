@@ -13,6 +13,7 @@ using Microsoft.Owin.Security;
 using System.Threading.Tasks;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.IO;
 
 namespace RentalManagement.Controllers
 {
@@ -126,7 +127,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Balance,ApartmentId,EmailAddress,InitialPassword,MoveInDate,MoveOutDate")] Tenant tenant)
+        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Balance,ApartmentId,EmailAddress,InitialPassword,MoveInDate,MoveOutDate,LeasePdfFileName")] Tenant tenant)
         {
             if (ModelState.IsValid)
             {
@@ -156,7 +157,16 @@ namespace RentalManagement.Controllers
             ViewBag.ApartmentId = new SelectList(db.Apartment, "Id", "Features", tenant.ApartmentId);
             return View(tenant);
         }
-
+        // GET: Tenants/GetPdf/
+        public ActionResult GetPdf(string fileName)
+        {
+            var fileStream = new FileStream("~/Content/" + fileName,
+                                             FileMode.Open,
+                                             FileAccess.Read
+                                           );
+            var fsResult = new FileStreamResult(fileStream, "application/pdf");
+            return fsResult;
+        }
         // GET: Tenants/Edit/5
         [Authorize(Roles = "Manager, Admin")]
         public ActionResult Edit(int? id)
@@ -179,7 +189,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ApartmentId,OccupyingApartment")] Tenant tenant)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ApartmentId,OccupyingApartment,MoveInDate, MoveOutDate, LeasePdfFileName")] Tenant tenant)
         {
             if (ModelState.IsValid)
             {

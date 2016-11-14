@@ -49,3 +49,9 @@
 }
 
 </table>
+
+@{
+    var doc = "exampleLease.pdf";
+}
+
+<p>@Html.ActionLink("Get Lease", "GetPdf", "Tenants", new { fileName = doc }, null)</p>

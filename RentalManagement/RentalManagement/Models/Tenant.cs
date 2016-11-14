@@ -35,6 +35,7 @@ namespace RentalManagement.Models
 
         public string InitialPassword { get; set; }
 
+        public string LeasePdfFileName { get; set; }
         [ForeignKey("Apartment")]
         public int ApartmentId { get; set; }
         public Apartment Apartment { get; set; }
