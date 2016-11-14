@@ -31,6 +31,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Balance)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoveInDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoveOutDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OccupyingApartment)
+            </th>
             <th></th>
         </tr>
         @foreach (var item in Model)
@@ -47,6 +56,15 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoveInDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoveOutDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OccupyingApartment)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

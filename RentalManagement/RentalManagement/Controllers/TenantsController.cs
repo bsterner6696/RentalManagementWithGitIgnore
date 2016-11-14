@@ -69,7 +69,7 @@ namespace RentalManagement.Controllers
             var tenants = db.Tenant.Include(t => t.Apartment);
             return View("Index",tenants.ToList());
         }
-        //GET: Tenants/ChargeRent
+        //GET: Tenants/MoveInOut
         [Authorize(Roles = "Manager, Admin")]
         public ActionResult MoveInOut()
         {
@@ -82,6 +82,7 @@ namespace RentalManagement.Controllers
                     if (today >= tenant.MoveInDate && today <= tenant.MoveOutDate)
                     {
                         tenant.OccupyingApartment = true;
+                        apartment.IsAvailable = false;
                     }
                     else
                     {
@@ -157,16 +158,6 @@ namespace RentalManagement.Controllers
             ViewBag.ApartmentId = new SelectList(db.Apartment, "Id", "Features", tenant.ApartmentId);
             return View(tenant);
         }
-        // GET: Tenants/GetPdf/
-        public ActionResult GetPdf(string fileName)
-        {
-            var fileStream = new FileStream("~/Content/" + fileName,
-                                             FileMode.Open,
-                                             FileAccess.Read
-                                           );
-            var fsResult = new FileStreamResult(fileStream, "application/pdf");
-            return fsResult;
-        }
         // GET: Tenants/Edit/5
         [Authorize(Roles = "Manager, Admin")]
         public ActionResult Edit(int? id)
@@ -189,7 +180,7 @@ namespace RentalManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ApartmentId,OccupyingApartment,MoveInDate, MoveOutDate, LeasePdfFileName")] Tenant tenant)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ApartmentId,OccupyingApartment,EmailAddress,InitialPassword,ApplicationUserId,MoveInDate, MoveOutDate, LeasePdfFileName")] Tenant tenant)
         {
             if (ModelState.IsValid)
             {
