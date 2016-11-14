@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using RentalManagement.Models;
 using Microsoft.AspNet.Identity;
+using Twilio;
+using System.Configuration;
 
 namespace RentalManagement.Controllers
 {
@@ -19,7 +21,20 @@ namespace RentalManagement.Controllers
         public ActionResult Index()
         {
             var maintainenceRequest = db.MaintainenceRequest.Include(m => m.Apartment).Include(r => r.Apartment.RentalProperty);
-            return View(maintainenceRequest.ToList());
+
+            if (User.IsInRole("Manager")) {
+                return View(maintainenceRequest.ToList());
+            }
+            else if (User.IsInRole("Tenant")) {
+                var applicationUserId = User.Identity.GetUserId();
+                var user = db.Tenant.Single(t => t.ApplicationUserId == applicationUserId);
+                maintainenceRequest = maintainenceRequest.Where(t => t.ApartmentId == user.ApartmentId);
+                return View(maintainenceRequest.ToList());
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         // GET: MaintainenceRequests/Details/5
@@ -41,7 +56,7 @@ namespace RentalManagement.Controllers
         public ActionResult Create()
         {
             ViewBag.ApartmentId = new SelectList(db.Apartment, "Id", "Features");
-            return View();
+            return View("Create");
         }
 
         // POST: MaintainenceRequests/Create
@@ -56,11 +71,20 @@ namespace RentalManagement.Controllers
             maintainenceRequest.TimeAndDateOfRequest = DateTime.Now;
             maintainenceRequest.ApartmentId = tenant.ApartmentId;
             maintainenceRequest.Apartment = tenant.Apartment;
+            var rentalProperty = db.RentalProperty.Find(tenant.Apartment.RentalPropertyId);
+
+
+            var message = $"Maintenance Request from {tenant.FirstName} at {rentalProperty.StreetAddress} ";
+            message += $" unit# {tenant.Apartment.Unit} Request: {maintainenceRequest.Request}";
 
             if (ModelState.IsValid)
             {
                 db.MaintainenceRequest.Add(maintainenceRequest);
                 db.SaveChanges();
+
+                var client = new TwilioRestClient(ConfigurationManager.AppSettings["TwilioAccountSid"], ConfigurationManager.AppSettings["TwilioAuthToken"]);
+                client.SendMessage(ConfigurationManager.AppSettings["TwilioPhoneNumber"], "14143368732", message);
+
                 return RedirectToAction("Index");
             }
 

@@ -72,6 +72,24 @@ namespace RentalManagement.Tests.Controllers
             Assert.AreEqual("Login", result.ViewName);
         }
 
+        [TestMethod]
+        public async Task  PostAccountRegister()
+        {
+            // Arrange
+            AccountController controller = new AccountController();
+            RegisterViewModel model = new RegisterViewModel();
+            model.Email = "email@test.com";
+            model.Password = "Password1";
+            model.ConfirmPassword = "Password1";
+
+            // Act
+            var result = await controller.Register(model);
+            var redirect = result as RedirectToRouteResult;
+
+            // Assert
+            Assert.IsInstanceOfType(redirect, typeof(RedirectToRouteResult));
+        }
+
         //[TestMethod]
         //DOES NOT WORK
         //public async Task BadLoginAttempt()
@@ -190,6 +208,299 @@ namespace RentalManagement.Tests.Controllers
 
 
 
-        //
+        // Apartment
+
+        [TestMethod]
+        public void ApartmentsDetailsWithNullId()
+        {
+            // Arrange
+            ApartmentsController controller = new ApartmentsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Details(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result,typeof(HttpStatusCodeResult));
+        }
+
+        [TestMethod]
+        public void ApartmentsGetCreate()
+        {
+            // Arrange
+            ApartmentsController controller = new ApartmentsController();
+
+            // Act
+            var result = controller.Create() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("Create",result.ViewName);
+        }
+
+        [TestMethod]
+        public void ApartmentsGetEditWithNullId()
+        {
+            // Arrange
+            ApartmentsController controller = new ApartmentsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Edit(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+        [TestMethod]
+        public void ApartmentsGetDeleteWithNullId()
+        {
+            // Arrange
+            ApartmentsController controller = new ApartmentsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Delete(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+
+
+
+
+        // Maintenance Requests
+        [TestMethod]
+        public void MaintenanceRequestsDetailsWithNullId()
+        {
+            // Arrange
+            MaintainenceRequestsController controller = new MaintainenceRequestsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Details(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+        [TestMethod]
+        public void MaintenanceRequestsGetCreate()
+        {
+            // Arrange
+            MaintainenceRequestsController controller = new MaintainenceRequestsController();
+
+            // Act
+            var result = controller.Create() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("Create", result.ViewName);
+        }
+
+        [TestMethod]
+        public void MaintenanceRequestsGetEditWithNullId()
+        {
+            // Arrange
+            MaintainenceRequestsController controller = new MaintainenceRequestsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Edit(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+        [TestMethod]
+        public void MaintenanceRequestsGetDeleteWithNullId()
+        {
+            // Arrange
+            MaintainenceRequestsController controller = new MaintainenceRequestsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Delete(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+
+
+
+
+
+
+
+
+
+        //Rental Properties
+        [TestMethod]
+        public void RentalPropertiesDetailsWithNullId()
+        {
+            // Arrange
+            RentalPropertiesController controller = new RentalPropertiesController();
+            int? id = null;
+
+            // Act
+            var result = controller.Details(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+        [TestMethod]
+        public void RentalPropertiesGetCreate()
+        {
+            // Arrange
+            RentalPropertiesController controller = new RentalPropertiesController();
+
+            // Act
+            var result = controller.Create() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("Create", result.ViewName);
+        }
+
+        [TestMethod]
+        public void RentalPropertiesGetEditWithNullId()
+        {
+            // Arrange
+            RentalPropertiesController controller = new RentalPropertiesController();
+            int? id = null;
+
+            // Act
+            var result = controller.Edit(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+        [TestMethod]
+        public void RentalPropertiesGetDeleteWithNullId()
+        {
+            // Arrange
+            RentalPropertiesController controller = new RentalPropertiesController();
+            int? id = null;
+
+            // Act
+            var result = controller.Delete(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+
+
+
+
+
+
+
+
+        //Tenants
+        [TestMethod]
+        public void TenantsDetailsWithNullId()
+        {
+            // Arrange
+            TenantsController controller = new TenantsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Details(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+        [TestMethod]
+        public void TenantsGetCreate()
+        {
+            // Arrange
+            TenantsController controller = new TenantsController();
+
+            // Act
+            var result = controller.Create() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("Create", result.ViewName);
+        }
+
+        [TestMethod]
+        public void TenantsGetEditWithNullId()
+        {
+            // Arrange
+            TenantsController controller = new TenantsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Edit(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+        [TestMethod]
+        public void TenantsGetDeleteWithNullId()
+        {
+            // Arrange
+            TenantsController controller = new TenantsController();
+            int? id = null;
+
+            // Act
+            var result = controller.Delete(id);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(HttpStatusCodeResult));
+        }
+
+
+
+
+
+
+
+
+
+
+        //Manage Controller
+        [TestMethod]
+        public void ManageGetAddPhoneNumber()
+        {
+            // Arrange
+            ManageController controller = new ManageController();
+
+            // Act
+            var result = controller.AddPhoneNumber() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("AddPhoneNumber", result.ViewName);
+        }
+
+        [TestMethod]
+        public void ManageGetChangePassword()
+        {
+            // Arrange
+            ManageController controller = new ManageController();
+
+            // Act
+            var result = controller.ChangePassword() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("ChangePassword", result.ViewName);
+        }
+
+        [TestMethod]
+        public void ManageGetSetPassword()
+        {
+            // Arrange
+            ManageController controller = new ManageController();
+
+            // Act
+            var result = controller.SetPassword() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("SetPassword", result.ViewName);
+        }
     }
 }

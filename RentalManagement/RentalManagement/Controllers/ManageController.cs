@@ -103,7 +103,7 @@ namespace RentalManagement.Controllers
         // GET: /Manage/AddPhoneNumber
         public ActionResult AddPhoneNumber()
         {
-            return View();
+            return View("AddPhoneNumber");
         }
 
         //
@@ -217,7 +217,7 @@ namespace RentalManagement.Controllers
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
         {
-            return View();
+            return View("ChangePassword");
         }
 
         //
@@ -248,7 +248,7 @@ namespace RentalManagement.Controllers
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()
         {
-            return View();
+            return View("SetPassword");
         }
 
         //

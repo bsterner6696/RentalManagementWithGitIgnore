@@ -40,7 +40,7 @@ namespace RentalManagement.Controllers
         public ActionResult Create()
         {
             ViewBag.PropertyManagerId = new SelectList(db.PropertyManager, "Id", "EmailAddress");
-            return View();
+            return View("Create");
         }
 
         // POST: RentalProperties/Create
