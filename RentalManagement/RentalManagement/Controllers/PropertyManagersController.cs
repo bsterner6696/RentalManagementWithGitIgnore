@@ -22,11 +22,12 @@ namespace RentalManagement.Controllers
                 return View("ManagerIndex", db.PropertyManager.ToList());
             }
             else
-            {
+            {   
                 return View(db.PropertyManager.ToList());
             }
             return View(db.PropertyManager.ToList());
         }
+
 
         // GET: PropertyManagers/Details/5
         [Authorize(Roles = "Manager, Tenant, Admin")]

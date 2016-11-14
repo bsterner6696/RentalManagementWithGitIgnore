@@ -61,3 +61,24 @@ var ws_no_link_score_description = 'true';
 
 
 </div>
+
+<br/> 
+
+<h3>Schedule a showing</h3>
+
+<div>
+    @using (Html.BeginForm("ScheduleShowing", "Apartments"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-inline">
+            <h5>Enter your name, email address, and date/time </h5>
+
+            @Html.TextAreaFor(model => model.Features, 5, 120, null)
+            <br /><br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+
+    }
+</div>

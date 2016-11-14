@@ -35,6 +35,12 @@ namespace RentalManagement.Controllers
             return View(rentalProperty);
         }
 
+        [HttpPost]
+        public ActionResult ScheduleShowing(Apartment apartment)
+        {
+            return Content(apartment.Features);
+        }
+
         // GET: Apartments/Details/5
         [Authorize(Roles = "Manager, Tenant, Admin")]
         public ActionResult Details(int? id)
