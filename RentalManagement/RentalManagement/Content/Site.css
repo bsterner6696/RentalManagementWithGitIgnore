@@ -1,6 +1,9 @@
 body{
 	background-color: #C0C0C0;
 }
+h1{
+	text-align: center;
+}
 .jumbotron{
 	text-align: center;
 }
@@ -51,4 +54,8 @@ textarea {
 .nav.navbar-nav li a {
      color: #000000; 
  }
-
+ .centerImage{
+	align-self: center;
+	display:block;
+	width: 100%;
+}
