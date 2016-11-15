@@ -20,6 +20,7 @@ namespace RentalManagement.Models
         public DateTime ShowingDate { get; set; }
         [Display (Name = "Time")]
         public DateTime ShowingTime { get; set; }
+        public string Apartment { get; set; }
   
     }
 }

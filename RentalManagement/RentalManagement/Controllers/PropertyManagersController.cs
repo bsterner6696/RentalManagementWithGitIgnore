@@ -25,7 +25,6 @@ namespace RentalManagement.Controllers
             {   
                 return View(db.PropertyManager.ToList());
             }
-            return View(db.PropertyManager.ToList());
         }
 
 

@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201611141552171_Added lease pdf file name to tenant.Designer.cs">
       <DependentUpon>201611141552171_Added lease pdf file name to tenant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611151509283_added schedule table.cs" />
+    <Compile Include="Migrations\201611151509283_added schedule table.Designer.cs">
+      <DependentUpon>201611151509283_added schedule table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Apartment.cs" />
@@ -348,6 +352,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611141552171_Added lease pdf file name to tenant.resx">
       <DependentUpon>201611141552171_Added lease pdf file name to tenant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611151509283_added schedule table.resx">
+      <DependentUpon>201611151509283_added schedule table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

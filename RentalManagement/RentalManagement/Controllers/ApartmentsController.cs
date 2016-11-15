@@ -50,7 +50,7 @@ namespace RentalManagement.Controllers
         {
 
             var message = $"Appointment from {schedule.FirstName} {schedule.LastName} \n ";
-            message += $" Email: {schedule.Email} Phone: {schedule.Phone} Date: {schedule.ShowingDate.ToShortDateString()} Time: {schedule.ShowingTime.ToShortTimeString()}";
+            message += $" Email: {schedule.Email} Phone: {schedule.Phone} Date: {schedule.ShowingDate.ToShortDateString()} Time: {schedule.ShowingTime.ToShortTimeString()} At: {schedule.Apartment}";
 
 
             //db.Schedule.Add(schedule);
