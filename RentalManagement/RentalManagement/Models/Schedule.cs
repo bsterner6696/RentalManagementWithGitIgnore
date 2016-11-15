@@ -14,13 +14,19 @@ namespace RentalManagement.Models
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
         [Display(Name = "Phone Number")]
+        [Phone]
         public string Phone { get; set; }
+        [DataType(DataType.Date)]
         public DateTime ShowingDate { get; set; }
         [Display (Name = "Time")]
+        [DataType(DataType.Time)]
         public DateTime ShowingTime { get; set; }
-        public string Apartment { get; set; }
+        [ForeignKey("Apartment")]
+        public int ApartmentId { get; set; }
+        public Apartment Apartment { get; set; }
   
     }
 }

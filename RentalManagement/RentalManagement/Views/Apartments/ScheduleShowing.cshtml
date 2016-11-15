@@ -13,6 +13,7 @@
     @using (Html.BeginForm("ScheduleShowing", "Apartments"))
     {
         @Html.AntiForgeryToken()
+        @Html.HiddenFor(a => a.Apartment)
     <div class="row">
         <div class="col-sm-2 form-inline">       
                     @Html.LabelFor(a => a.FirstName)
@@ -59,14 +60,6 @@
         </div>
         <div class="col-sm-3 input[type=text]">
             @Html.TextBoxFor(a => a.ShowingTime, new { @Value = "Enter a time 10AM-6PM", @class = "form-control" })
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2 form-inline">
-            @Html.LabelFor(a => a.Apartment)
-        </div>
-        <div class="col-sm-3 input[type=text]">
-            @Html.TextBoxFor(a => a.Apartment, new { @Value = "Enter the apartment you wish to view.", @class = "form-control" })
         </div>
     </div>
     <div>

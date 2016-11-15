@@ -41,16 +41,19 @@ namespace RentalManagement.Controllers
         {
             Schedule schedule = new Schedule();
             //schedule.ShowingTime = DateTime.Parse("    3:00PM"); 
+            Apartment apartment = db.Apartment.FirstOrDefault(x => x.Id == id);
+            schedule.Apartment = apartment;
+            ViewBag.apartment = apartment;
 
             return View(schedule);
         }
 
         [HttpPost]
-        public ActionResult ScheduleShowing(Schedule schedule)
+        public ActionResult ScheduleShowing([Bind(Include = "Id, FirstName, LastName, Email, Phone, ShowingDate, ShowingTime, Apartment")]Schedule schedule)
         {
 
             var message = $"Appointment from {schedule.FirstName} {schedule.LastName} \n ";
-            message += $" Email: {schedule.Email} Phone: {schedule.Phone} Date: {schedule.ShowingDate.ToShortDateString()} Time: {schedule.ShowingTime.ToShortTimeString()} At: {schedule.Apartment}";
+            message += $" Email: {schedule.Email} Phone: {schedule.Phone} Date: {schedule.ShowingDate.ToShortDateString()} Time: {schedule.ShowingTime.ToShortTimeString()} At: {schedule.Apartment.Features}";
 
 
             //db.Schedule.Add(schedule);
