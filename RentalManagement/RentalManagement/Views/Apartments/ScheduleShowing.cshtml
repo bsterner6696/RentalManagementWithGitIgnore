@@ -40,13 +40,12 @@
 
             <br />
 
-            @*<p>@Model.ApartmentId</p>*@
             
-
+            @Html.LabelFor(a => a.ShowingDate)
             <input type="date" name="ShowingDate">
             <br/>
             @Html.LabelFor(a => a.ShowingTime)
-            @Html.TextBoxFor(a => a.ShowingTime, new { @class = "form-control" , @value = "Example 5PM"})
+            @Html.TextBoxFor(a => a.ShowingTime, new { @Value = "Enter a time between 10AM and 6PM", @class = "form-control" })
 
             <br />
 

@@ -40,7 +40,7 @@ namespace RentalManagement.Controllers
         public ActionResult ScheduleShowing(int? id)
         {
             Schedule schedule = new Schedule();
-            schedule.ShowingTime = default(DateTime).Add(schedule.ShowingTime.TimeOfDay);
+            //schedule.ShowingTime = DateTime.Parse("    3:00PM"); 
 
             return View(schedule);
         }
