@@ -243,7 +243,7 @@ namespace RentalManagement.Tests.Controllers
         public void ApartmentsPostCreate()
         {
             // Arrange
-            Mock<>
+            //Mock<>
             ApartmentsController controller = new ApartmentsController();
             Apartment apartment = new Apartment();
 

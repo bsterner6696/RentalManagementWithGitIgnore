@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RentalManagement.Models;
+using Twilio;
+using System.Configuration;
 
 namespace RentalManagement.Controllers
 {
@@ -34,11 +36,31 @@ namespace RentalManagement.Controllers
             var rentalProperty = db.Apartment.Include(a => a.RentalProperty).SingleOrDefault(r => r.Id == id);
             return View(rentalProperty);
         }
+      
+        public ActionResult ScheduleShowing(int? id)
+        {
+            Schedule schedule = new Schedule();
+            schedule.ShowingTime = default(DateTime).Add(schedule.ShowingTime.TimeOfDay);
+
+            return View(schedule);
+        }
 
         [HttpPost]
-        public ActionResult ScheduleShowing(Apartment apartment)
+        public ActionResult ScheduleShowing(Schedule schedule)
         {
-            return Content(apartment.Features);
+
+            var message = $"Appointment from {schedule.FirstName} {schedule.LastName} \n ";
+            message += $" Email: {schedule.Email} Phone: {schedule.Phone} Date: {schedule.ShowingDate.ToShortDateString()} Time: {schedule.ShowingTime.ToShortTimeString()}";
+
+
+            //db.Schedule.Add(schedule);
+            //db.SaveChanges();
+
+            var client = new TwilioRestClient(ConfigurationManager.AppSettings["TwilioAccountSid"], ConfigurationManager.AppSettings["TwilioAuthToken"]);
+            client.SendMessage(ConfigurationManager.AppSettings["TwilioPhoneNumber"], "14143368732", message);
+
+            return RedirectToAction("Index");
+
         }
 
         // GET: Apartments/Details/5

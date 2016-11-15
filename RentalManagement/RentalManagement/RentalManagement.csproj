@@ -233,6 +233,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PropertyManager.cs" />
     <Compile Include="Models\RentalProperty.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -331,6 +332,7 @@
     <Content Include="Views\Tenants\ManagerIndex.cshtml" />
     <Content Include="Views\RentalProperties\ManagerIndex.cshtml" />
     <Content Include="Views\PropertyManagers\ManagerIndex.cshtml" />
+    <Content Include="Views\Apartments\ScheduleShowing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
