@@ -60,3 +60,15 @@ textarea {
 	width: 100%;
 }
  
+ label
+{
+width:200px;
+float:left;
+text-align:left
+}
+
+input[type=text]
+{
+width:200px;
+float:left;
+}
