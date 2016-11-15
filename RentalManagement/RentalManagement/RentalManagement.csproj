@@ -216,6 +216,7 @@
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\PropertyManagersController.cs" />
     <Compile Include="Controllers\RentalPropertiesController.cs" />
+    <Compile Include="Controllers\SchedulesController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -345,6 +346,7 @@
     <Content Include="Views\RentalProperties\ManagerIndex.cshtml" />
     <Content Include="Views\PropertyManagers\ManagerIndex.cshtml" />
     <Content Include="Views\Apartments\ScheduleShowing.cshtml" />
+    <Content Include="Views\Schedules\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
