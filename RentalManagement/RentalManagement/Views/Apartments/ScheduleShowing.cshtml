@@ -13,66 +13,56 @@
     @using (Html.BeginForm("ScheduleShowing", "Apartments"))
     {
         @Html.AntiForgeryToken()
-
-        <div class="form-inline">
-            @*<h5>Enter your name, email address, and date/time </h5>
-
-                @Html.TextAreaFor(model => model.FirstName, 5, 120, null)*@
-            
+    <div class="row">
+        <div class="col-sm-2 form-inline">       
                     @Html.LabelFor(a => a.FirstName)
-                    @Html.TextBoxFor(a => a.FirstName, new { @class = "form-control" })
-              
-            <br/>
-
-
-                    @Html.LabelFor(a => a.LastName)
-                    @Html.TextBoxFor(a => a.LastName, new { @class = "form-control" })
-             
-            <br/>
-           
-                    @Html.LabelFor(a => a.Email)
-                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
-             
-            
-            <br/>
-
-                    @Html.LabelFor(a => a.Phone)
-                    @Html.TextBoxFor(a => a.Phone, new { @class = "form-control" })
-
-            <br />  
-
-            
-                    @Html.LabelFor(a => a.ShowingDate)
-                    <input type="date" name="ShowingDate">
-             
-
-            <br />
-
-            
-                    @Html.LabelFor(a => a.ShowingTime)
-                    @Html.TextBoxFor(a => a.ShowingTime, new { @Value = "Enter a time between 10AM and 6PM", @class = "form-control" })
-
-                
-            <br />
-
-            @*@Html.EnumDropDownListFor(Model => Model., new { @class = "form-control" })*@
-
-            @*@{ string defaultValue = string.IsNullOrEmpty(null) ? "06" : null; }
-
-                @Html.DropDownListFor(Model => Model.ShowingTime,
-                Enumerable.Range(09, 10).Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString()}),
-                "-- Hour --",
-                defaultValue
-                )*@
-
-            @*@Html.DropDownListFor(model => model.ShowingTime, Model.AvailableTimes);
-
-                <br /><br />*@
-
-
-            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-
-
+        <div class="col-sm-3 input[type=text]">
+                    @Html.TextBoxFor(a => a.FirstName, new { @class = "form-control" })              
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 form-inline">
+            @Html.LabelFor(a => a.LastName)
+        </div>
+        <div class="col-sm-3 input[type=text]">
+            @Html.TextBoxFor(a => a.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 form-inline">
+            @Html.LabelFor(a => a.Email)
+        </div>
+        <div class="col-sm-3 input[type=text]">
+            @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 form-inline">
+            @Html.LabelFor(a => a.Phone)
+        </div>
+        <div class="col-sm-3 input[type=text]">
+            @Html.TextBoxFor(a => a.Phone, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 form-inline">
+            @Html.LabelFor(a => a.ShowingDate)
+        </div>
+        <div class="col-sm-3 input[type=text]">
+            <input type="date" name="ShowingDate">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 form-inline">
+            @Html.LabelFor(a => a.ShowingTime)
+        </div>
+        <div class="col-sm-3 input[type=text]">
+            @Html.TextBoxFor(a => a.ShowingTime, new { @Value = "Enter a time 10AM-6PM", @class = "form-control" })
+        </div>
+    </div>
+    <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
     }
 </div>

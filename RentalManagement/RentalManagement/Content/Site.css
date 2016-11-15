@@ -60,15 +60,15 @@ textarea {
 	width: 100%;
 }
  
- label
+ form-inline
 {
-width:200px;
+width:100%;
 float:left;
 text-align:left
 }
 
 input[type=text]
 {
-width:200px;
+width:100%;
 float:left;
 }
